@@ -24,6 +24,16 @@ describe('DarkOneButton', () => {
     override.unmount();
   });
 
+  it.each(['icon-xs', 'icon-sm', 'icon', 'icon-lg'] as const)('draws a %s ghost icon action square, unpadded and borderless', (size) => {
+    const action = mount(DarkOneButton, { props: { variant: 'ghost', size }, attrs: { 'aria-label': 'Rerun' }, slots: { default: () => h('svg') } });
+    expect(action.classes()).toEqual(expect.arrayContaining(['rounded-(--darkone-radius)', 'p-0', 'hover:bg-accent']));
+    // The vendor rounds icon-xs itself; the DarkOne radius must replace it, not race it.
+    expect(action.classes()).not.toContain('rounded-md');
+    expect(action.classes()).not.toContain('border');
+    expect(action.classes()).not.toContain('h-(--darkone-action-height)');
+    action.unmount();
+  });
+
   it('keeps as-child links on the vendored primitive', () => {
     const action = mount(DarkOneButton, { props: { asChild: true }, slots: { default: () => h('a', { href: '/models' }, 'Models') } });
     expect(action.element.tagName).toBe('A');
