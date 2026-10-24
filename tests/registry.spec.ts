@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { basename, join, relative, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import registry from '../registry.json';
-import { UNSHOWN } from '../src/kitchensink/catalogue';
+import { ALIASES, UNSHOWN } from '../src/kitchensink/items';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const DARKONE = 'src/components/darkone';
@@ -92,6 +92,10 @@ describe('registry.json', () => {
     const specimens = readdirSync(join(ROOT, 'src/kitchensink/specimens')).map((file) => `darkone-${file.replace(/\.vue$/, '')}`);
     const shown = items.filter((item) => !UNSHOWN.has(item.name)).map((item) => item.name);
     expect(specimens.toSorted()).toEqual(shown.toSorted());
+  });
+
+  it('points every alias at a shown item', () => {
+    for (const alias of ALIASES) expect(byName.has(alias.target) && !UNSHOWN.has(alias.target), alias.title).toBe(true);
   });
 });
 

@@ -20,7 +20,7 @@ async function copy() {
 </script>
 
 <template>
-  <section :id="props.entry.name" :aria-labelledby="`${props.entry.name}-title`" class="flex scroll-mt-4 flex-col gap-4 border-b pb-10" data-specimen>
+  <section :id="props.entry.name" :aria-labelledby="`${props.entry.name}-title`" class="flex scroll-mt-16 flex-col gap-4 border-b pb-10" data-specimen>
     <header class="flex flex-col gap-1">
       <h2 :id="`${props.entry.name}-title`" class="text-base font-semibold">{{ props.entry.title }}</h2>
       <div class="text-sm text-muted-foreground">{{ props.entry.description }}</div>

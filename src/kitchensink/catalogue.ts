@@ -1,17 +1,9 @@
 import registry from '../../registry.json';
 import type { Component } from 'vue';
+import { ALIASES, UNSHOWN } from './items';
 
-/** Items with nothing to look at: the shared core, and the install-everything aggregate. */
-export const UNSHOWN = new Set(['darkone-core', 'darkone']);
-
-/** A name upstream retired for another, listed so a reader looking for it lands somewhere. */
-export interface Alias {
-  title: string;
-  target: string;
-  note: string;
-}
-
-export const ALIASES: Alias[] = [{ title: 'Toast', target: 'darkone-sonner', note: 'Toast is deprecated upstream in favour of Sonner.' }];
+export { ALIASES, UNSHOWN } from './items';
+export type { Alias } from './items';
 
 export interface SourceFile {
   /** The path the registry ships it from, which is where it lands under the consumer's components alias. */

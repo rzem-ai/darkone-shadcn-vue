@@ -14,7 +14,7 @@ const sections = [
 
 <template>
   <div class="flex min-h-screen flex-col">
-    <header class="sticky top-0 z-10 flex shrink-0 items-center justify-between gap-4 border-b bg-background px-4 py-3 sm:px-5">
+    <header class="sticky top-0 z-10 flex h-12 shrink-0 items-center justify-between gap-4 border-b bg-background px-4 sm:px-5">
       <div class="flex min-w-0 items-baseline gap-2">
         <h1 class="text-sm font-semibold">DarkOne</h1>
         <span class="truncate font-mono text-xs text-muted-foreground">shadcn-vue wrappers, kitchensink</span>
@@ -26,7 +26,7 @@ const sections = [
     </header>
 
     <div class="flex min-h-0 flex-1">
-      <nav aria-label="Components" class="sticky top-[49px] hidden h-[calc(100vh-49px)] w-52 shrink-0 overflow-y-auto border-r p-3 md:block">
+      <nav aria-label="Components" class="sticky top-12 hidden h-[calc(100vh-3rem)] w-52 shrink-0 overflow-y-auto border-r p-3 md:block">
         <div v-for="section in sections" :key="section.title" class="flex flex-col gap-1 pb-4">
           <h2 class="px-2 text-xs tracking-(--darkone-tracking) text-muted-foreground uppercase">{{ section.title }}</h2>
           <ul class="flex flex-col">
