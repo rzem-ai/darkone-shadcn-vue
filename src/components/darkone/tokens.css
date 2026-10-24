@@ -1,0 +1,45 @@
+/**
+ * DarkOne geometry and palette aliases.
+ *
+ * The single source for the tokens. The kitchensink imports this file, and
+ * tools/build-registry.mjs reads it into the `darkone-core` item's cssVars,
+ * which `shadcn-vue add` merges into the consumer's stylesheet. Keep it to
+ * three blocks of plain `--name: value;` declarations; the build parses
+ * nothing else.
+ *
+ * Only DarkOne controls are square; the vendor's --radius is unchanged.
+ */
+:root {
+  --darkone-radius: 0;
+  --darkone-tracking: 0.025em;
+  --darkone-band-height: 22px;
+  --darkone-row-height: 26px;
+  --darkone-action-height: 26px;
+  --darkone-field-height: 1.875rem;
+  --darkone-field-compact-height: 1.625rem;
+  --darkone-field-background: var(--sidebar);
+  --darkone-field-border: var(--border);
+  --darkone-action-background: var(--card);
+  --darkone-action-foreground: var(--accent-foreground);
+}
+
+/* Rebound in the dark theme so dark controls do not inherit the light root's
+   resolved colours. */
+.dark {
+  --darkone-field-background: var(--sidebar);
+  --darkone-field-border: var(--border);
+  --darkone-action-background: var(--card);
+  --darkone-action-foreground: var(--accent-foreground);
+}
+
+/* Colours only. The vendor merges its classes with the consumer's `cn`, whose
+   tailwind-merge knows nothing of these names: it reads `bg-darkone-field` as a
+   colour and drops the vendor's, but keeps `rounded-md` beside a `rounded-darkone`
+   and lets stylesheet order pick. Geometry is therefore written against the
+   variable, `rounded-(--darkone-radius)`, which every tailwind-merge recognises. */
+@theme inline {
+  --color-darkone-field: var(--darkone-field-background);
+  --color-darkone-field-border: var(--darkone-field-border);
+  --color-darkone-action: var(--darkone-action-background);
+  --color-darkone-action-foreground: var(--darkone-action-foreground);
+}
