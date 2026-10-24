@@ -19,9 +19,9 @@ const batch = ref(4);
   <SpecimenRow label="With text">
     <DarkOneButtonGroup aria-label="Batch size">
       <DarkOneButtonGroupText>Batch</DarkOneButtonGroupText>
-      <DarkOneButton size="icon" class="size-(--darkone-action-height)" aria-label="Fewer" :disabled="batch <= 1" @click="batch--"><Minus /></DarkOneButton>
+      <DarkOneButton size="icon-action" aria-label="Fewer" :disabled="batch <= 1" @click="batch--"><Minus /></DarkOneButton>
       <DarkOneButtonGroupText class="min-w-8 justify-center font-mono">{{ batch }}</DarkOneButtonGroupText>
-      <DarkOneButton size="icon" class="size-(--darkone-action-height)" aria-label="More" :disabled="batch >= 8" @click="batch++"><Plus /></DarkOneButton>
+      <DarkOneButton size="icon-action" aria-label="More" :disabled="batch >= 8" @click="batch++"><Plus /></DarkOneButton>
     </DarkOneButtonGroup>
   </SpecimenRow>
   <SpecimenRow label="Split, with separator">
