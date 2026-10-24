@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { PlusIcon, Trash2Icon } from '@lucide/vue';
+import { ref } from 'vue';
+import { CopyIcon, DownloadIcon, PlusIcon, RotateCcwIcon, SettingsIcon, Trash2Icon, WrapTextIcon } from '@lucide/vue';
 import DarkOneButton from '@/components/darkone/DarkOneButton.vue';
 import SpecimenRow from '../SpecimenRow.vue';
+
+const wrap = ref(false);
 </script>
 
 <template>
@@ -17,6 +20,14 @@ import SpecimenRow from '../SpecimenRow.vue';
     <DarkOneButton><PlusIcon />Add model</DarkOneButton>
     <DarkOneButton size="icon" aria-label="Delete"><Trash2Icon /></DarkOneButton>
     <DarkOneButton size="icon-sm" aria-label="Add"><PlusIcon /></DarkOneButton>
+  </SpecimenRow>
+  <SpecimenRow label="Ghost, icon only">
+    <DarkOneButton variant="ghost" size="icon-xs" aria-label="Copy seed"><CopyIcon /></DarkOneButton>
+    <DarkOneButton variant="ghost" size="icon-sm" aria-label="Rerun"><RotateCcwIcon /></DarkOneButton>
+    <DarkOneButton variant="ghost" size="icon" aria-label="Settings"><SettingsIcon /></DarkOneButton>
+    <DarkOneButton variant="ghost" size="icon-lg" aria-label="Delete run"><Trash2Icon /></DarkOneButton>
+    <DarkOneButton variant="ghost" size="icon-sm" aria-label="Wrap lines" :aria-pressed="wrap" class="aria-pressed:bg-accent aria-pressed:text-foreground" @click="wrap = !wrap"><WrapTextIcon /></DarkOneButton>
+    <DarkOneButton variant="ghost" size="icon-sm" aria-label="Download" disabled><DownloadIcon /></DarkOneButton>
   </SpecimenRow>
   <SpecimenRow label="Vendor sizes">
     <DarkOneButton size="xs">Extra small</DarkOneButton>
