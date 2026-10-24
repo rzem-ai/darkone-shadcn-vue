@@ -2,7 +2,7 @@
 import type { PrimitiveProps } from 'reka-ui';
 import type { HTMLAttributes } from 'vue';
 import type { ButtonVariants } from '@/components/ui/button';
-import DarkOneButton from './DarkOneButton.vue';
+import DarkOneButton, { type DarkOneButtonSize } from './DarkOneButton.vue';
 
 // The vendor's action forwards neither its class nor as-child, so it cannot be restyled
 // from outside; this is the same ghost icon button, drawn as a DarkOne action.
@@ -10,7 +10,7 @@ const props = withDefaults(
   defineProps<
     PrimitiveProps & {
       variant?: ButtonVariants['variant'];
-      size?: ButtonVariants['size'];
+      size?: DarkOneButtonSize;
       class?: HTMLAttributes['class'];
     }
   >(),

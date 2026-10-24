@@ -25,7 +25,15 @@ describe('DarkOneButton', () => {
     override.unmount();
   });
 
-  it.each(['icon-xs', 'icon-sm', 'icon', 'icon-lg'] as const)('draws a %s ghost icon action square, unpadded and borderless', (size) => {
+  it('draws icon-action as a square at the action height, over the vendor icon size', () => {
+    const action = mount(DarkOneButton, { props: { size: 'icon-action' }, attrs: { 'aria-label': 'Add' }, slots: { default: () => h('svg') } });
+    expect(action.classes()).toEqual(expect.arrayContaining(['size-(--darkone-action-height)', 'p-0', 'rounded-(--darkone-radius)', 'border']));
+    expect(action.classes()).not.toContain('size-9');
+    expect(action.classes()).not.toContain('h-(--darkone-action-height)');
+    action.unmount();
+  });
+
+  it.each(['icon-xs', 'icon-sm', 'icon', 'icon-action', 'icon-lg'] as const)('draws a %s ghost icon action square, unpadded and borderless', (size) => {
     const action = mount(DarkOneButton, { props: { variant: 'ghost', size }, attrs: { 'aria-label': 'Rerun' }, slots: { default: () => h('svg') } });
     expect(action.classes()).toEqual(expect.arrayContaining(['rounded-(--darkone-radius)', 'p-0', 'hover:bg-accent']));
     // The vendor rounds icon-xs itself; the DarkOne radius must replace it, not race it.

@@ -21,8 +21,15 @@ const wrap = ref(false);
     <DarkOneButton size="icon" aria-label="Delete"><Trash2Icon /></DarkOneButton>
     <DarkOneButton size="icon-sm" aria-label="Add"><PlusIcon /></DarkOneButton>
   </SpecimenRow>
+  <SpecimenRow label="Icon at the action height">
+    <DarkOneButton>Queue run</DarkOneButton>
+    <DarkOneButton size="icon-action" aria-label="Add to queue"><PlusIcon /></DarkOneButton>
+    <DarkOneButton variant="ghost" size="icon-action" aria-label="Rerun"><RotateCcwIcon /></DarkOneButton>
+    <DarkOneButton variant="destructive" size="icon-action" aria-label="Delete run"><Trash2Icon /></DarkOneButton>
+  </SpecimenRow>
   <SpecimenRow label="Ghost, icon only">
     <DarkOneButton variant="ghost" size="icon-xs" aria-label="Copy seed"><CopyIcon /></DarkOneButton>
+    <DarkOneButton variant="ghost" size="icon-action" aria-label="Duplicate"><CopyIcon /></DarkOneButton>
     <DarkOneButton variant="ghost" size="icon-sm" aria-label="Rerun"><RotateCcwIcon /></DarkOneButton>
     <DarkOneButton variant="ghost" size="icon" aria-label="Settings"><SettingsIcon /></DarkOneButton>
     <DarkOneButton variant="ghost" size="icon-lg" aria-label="Delete run"><Trash2Icon /></DarkOneButton>
