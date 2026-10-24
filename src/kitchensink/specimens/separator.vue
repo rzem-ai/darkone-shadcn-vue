@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DarkOneSeparator } from '@/components/darkone';
+import { DarkOneSeparator } from '@/components/darkone/separator';
 import SpecimenRow from '../SpecimenRow.vue';
 </script>
 

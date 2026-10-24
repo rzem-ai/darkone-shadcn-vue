@@ -1,16 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import {
-  DarkOneField,
-  DarkOneSelect,
-  DarkOneSelectContent,
-  DarkOneSelectGroup,
-  DarkOneSelectItem,
-  DarkOneSelectLabel,
-  DarkOneSelectSeparator,
-  DarkOneSelectTrigger,
-  DarkOneSelectValue,
-} from '@/components/darkone';
+import DarkOneField from '@/components/darkone/DarkOneField.vue';
+import { DarkOneSelect, DarkOneSelectContent, DarkOneSelectGroup, DarkOneSelectItem, DarkOneSelectLabel, DarkOneSelectSeparator, DarkOneSelectTrigger, DarkOneSelectValue } from '@/components/darkone/select';
 import SpecimenRow from '../SpecimenRow.vue';
 
 const mode = ref('balanced');

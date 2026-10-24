@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { DarkOneSlider } from '@/components/darkone';
+import { DarkOneSlider } from '@/components/darkone/slider';
 import SpecimenRow from '../SpecimenRow.vue';
 
 const strength = ref([40]);

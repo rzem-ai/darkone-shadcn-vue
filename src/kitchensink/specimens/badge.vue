@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DarkOneBadge } from '@/components/darkone';
+import { DarkOneBadge } from '@/components/darkone/badge';
 import SpecimenRow from '../SpecimenRow.vue';
 </script>
 

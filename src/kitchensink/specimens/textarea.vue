@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { DarkOneField, DarkOneTextarea } from '@/components/darkone';
+import DarkOneField from '@/components/darkone/DarkOneField.vue';
+import DarkOneTextarea from '@/components/darkone/DarkOneTextarea.vue';
 import SpecimenRow from '../SpecimenRow.vue';
 
 const prompt = ref('Soft window light, a quiet room.');

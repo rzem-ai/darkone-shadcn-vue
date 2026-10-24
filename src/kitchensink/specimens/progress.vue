@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DarkOneProgress } from '@/components/darkone';
+import { DarkOneProgress } from '@/components/darkone/progress';
 import SpecimenRow from '../SpecimenRow.vue';
 </script>
 

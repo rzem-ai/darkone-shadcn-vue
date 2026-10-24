@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { DarkOneInput, DarkOneLabel } from '@/components/darkone';
+import DarkOneInput from '@/components/darkone/DarkOneInput.vue';
+import { DarkOneLabel } from '@/components/darkone/label';
 import SpecimenRow from '../SpecimenRow.vue';
 </script>
 

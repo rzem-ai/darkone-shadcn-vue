@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { DarkOneButton, DarkOneCard, DarkOneCardContent, DarkOneCardDescription, DarkOneCardFooter, DarkOneCardHeader, DarkOneCardTitle } from '@/components/darkone';
+import DarkOneButton from '@/components/darkone/DarkOneButton.vue';
+import { DarkOneCard, DarkOneCardContent, DarkOneCardDescription, DarkOneCardFooter, DarkOneCardHeader, DarkOneCardTitle } from '@/components/darkone/card';
 import SpecimenRow from '../SpecimenRow.vue';
 </script>
 

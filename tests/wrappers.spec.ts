@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { defineComponent, h, nextTick } from 'vue';
 import { Checkbox } from '../src/components/ui/checkbox';
+import { safeHref } from '../src/components/darkone/safeHref';
 import { DarkOneButton, DarkOneCheckbox, DarkOneField, DarkOneInput, DarkOneSwitch, DarkOneTextarea, createDarkOneControl } from '../src/components/darkone';
 
 describe('DarkOneButton', () => {
@@ -117,5 +118,17 @@ describe('createDarkOneControl', () => {
     const Wrapped = createDarkOneControl(Probe, 'Aligned', (props) => props.align === 'end' && 'justify-end');
     expect(mount(Wrapped, { props: { align: 'end' } }).classes()).toContain('justify-end');
     expect(mount(Wrapped, { props: { align: 'start' } }).classes()).not.toContain('justify-end');
+  });
+});
+
+describe('safeHref', () => {
+  it('keeps http(s) links from data and drops every other scheme', () => {
+    expect(safeHref('https://huggingface.co/stabilityai/sdxl')).toBe('https://huggingface.co/stabilityai/sdxl');
+    expect(safeHref('http://localhost:8188/')).toBe('http://localhost:8188/');
+    expect(safeHref('javascript:alert(1)')).toBeUndefined();
+    expect(safeHref(' JavaScript:alert(1)')).toBeUndefined();
+    expect(safeHref('data:text/html,<script>alert(1)</script>')).toBeUndefined();
+    expect(safeHref('not a url')).toBeUndefined();
+    expect(safeHref(undefined)).toBeUndefined();
   });
 });

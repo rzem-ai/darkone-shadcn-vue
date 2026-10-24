@@ -6,8 +6,8 @@
     {
       "name": "darkone-core",
       "type": "registry:lib",
-      "title": "DarkOne core",
-      "description": "The control factory, the field context and the DarkOne tokens. Every other item depends on it.",
+      "title": "DarkOne Core",
+      "description": "The control factory, the field context, the link guard and the DarkOne tokens. Every other item depends on it.",
       "dependencies": [
         "clsx"
       ],
@@ -21,6 +21,10 @@
         },
         {
           "path": "src/components/darkone/fieldContext.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/safeHref.ts",
           "type": "registry:component"
         }
       ]
@@ -166,7 +170,7 @@
     {
       "name": "darkone-radio-group",
       "type": "registry:component",
-      "title": "Radio group",
+      "title": "Radio Group",
       "description": "Square radio items on the field surface.",
       "registryDependencies": [
         "darkone-core",
@@ -198,7 +202,7 @@
     {
       "name": "darkone-toggle-group",
       "type": "registry:component",
-      "title": "Toggle group",
+      "title": "Toggle Group",
       "description": "A row of square toggles, joined or spaced.",
       "registryDependencies": [
         "darkone-core",
@@ -214,7 +218,7 @@
     {
       "name": "darkone-tags-input",
       "type": "registry:component",
-      "title": "Tags input",
+      "title": "Tags Input",
       "description": "A tags input on the field surface.",
       "registryDependencies": [
         "darkone-core",
@@ -342,7 +346,7 @@
     {
       "name": "darkone-alert-dialog",
       "type": "registry:component",
-      "title": "Alert dialog",
+      "title": "Alert Dialog",
       "description": "A square confirmation dialog whose actions keep Reka focus handling.",
       "registryDependencies": [
         "darkone-core",
@@ -351,6 +355,1331 @@
       "files": [
         {
           "path": "src/components/darkone/alert-dialog.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-code-block",
+      "type": "registry:component",
+      "title": "Code Block",
+      "description": "Highlighted code in a recessed well, with a path band and a copy action.",
+      "registryDependencies": [
+        "darkone-core",
+        "code-block"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/code-block.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-attachment",
+      "type": "registry:component",
+      "title": "Attachment",
+      "description": "A file chip, square and flat, with a recessed media well and DarkOne actions.",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "attachment",
+        "button",
+        "darkone-button"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/attachment.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/DarkOneAttachmentAction.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/DarkOneAttachmentTrigger.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-bubble",
+      "type": "registry:component",
+      "title": "Bubble",
+      "description": "A chat bubble drawn as a square, flat block of text, with square reactions.",
+      "registryDependencies": [
+        "darkone-core",
+        "bubble"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/bubble.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-marker",
+      "type": "registry:component",
+      "title": "Marker",
+      "description": "An event line in a thread, set as a small tracked label at row height.",
+      "registryDependencies": [
+        "darkone-core",
+        "marker"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/marker.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-message",
+      "type": "registry:component",
+      "title": "Message",
+      "description": "A message row with a square avatar, an uppercase tracked name and a dense footer.",
+      "registryDependencies": [
+        "darkone-core",
+        "message"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/message.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-message-scroller",
+      "type": "registry:component",
+      "title": "Message Scroller",
+      "description": "A thread viewport that follows new turns, with a focus ring and a square jump-to-end action.",
+      "registryDependencies": [
+        "darkone-core",
+        "message-scroller"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/message-scroller.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-trace",
+      "type": "registry:component",
+      "title": "Trace",
+      "description": "An agent's steps as a dense log, one tracked line per step at row height.",
+      "registryDependencies": [
+        "darkone-core",
+        "trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/trace.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-questionnaire",
+      "type": "registry:component",
+      "title": "Questionnaire",
+      "description": "A stepped form whose choices and actions are square, tracked and at action height, like DarkOneButton.",
+      "registryDependencies": [
+        "darkone-core",
+        "questionnaire"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/questionnaire.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-alert",
+      "type": "registry:component",
+      "title": "Alert",
+      "description": "A square, tighter alert, with positive and caution tones beside the vendor's destructive variant.",
+      "registryDependencies": [
+        "darkone-core",
+        "alert"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/alert.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/DarkOneAlert.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "A square avatar with tracked fallback initials.",
+      "registryDependencies": [
+        "darkone-core",
+        "avatar"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/avatar.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-empty",
+      "type": "registry:component",
+      "title": "Empty",
+      "description": "A square, tighter empty state with a smaller title.",
+      "registryDependencies": [
+        "darkone-core",
+        "empty"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/empty.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-item",
+      "type": "registry:component",
+      "title": "Item",
+      "description": "A square list item, padded as a row rather than a card.",
+      "registryDependencies": [
+        "darkone-core",
+        "item"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/item.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-kbd",
+      "type": "registry:component",
+      "title": "Kbd",
+      "description": "A square key cap in the mono face.",
+      "registryDependencies": [
+        "darkone-core",
+        "kbd"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/kbd.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-spinner",
+      "type": "registry:component",
+      "title": "Spinner",
+      "description": "The vendor spinner, under a DarkOne name.",
+      "registryDependencies": [
+        "darkone-core",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/spinner.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-table",
+      "type": "registry:component",
+      "title": "Table",
+      "description": "A dense table at row height, with uppercase, tracked headers.",
+      "registryDependencies": [
+        "darkone-core",
+        "table"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/table.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-chart",
+      "type": "registry:component",
+      "title": "Chart",
+      "description": "Unovis charts with a flat, square tooltip and square legend swatches.",
+      "registryDependencies": [
+        "darkone-core",
+        "chart"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/chart.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-stepper",
+      "type": "registry:component",
+      "title": "Stepper",
+      "description": "A stepper with square, bordered indicators at row height.",
+      "registryDependencies": [
+        "darkone-core",
+        "stepper"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/stepper.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-sonner",
+      "type": "registry:component",
+      "title": "Sonner",
+      "description": "A toaster whose toasts and buttons are square and unshadowed, with toast in the same import.",
+      "dependencies": [
+        "vue-sonner"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "sonner"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/sonner.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/DarkOneToaster.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-input-group",
+      "type": "registry:component",
+      "title": "Input Group",
+      "description": "An input with addons, buttons and text inside one well, which joins a DarkOneField and lines its addons up with the field's inset.",
+      "registryDependencies": [
+        "darkone-core",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/input-group.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/DarkOneInputGroup.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-input-otp",
+      "type": "registry:component",
+      "title": "Input OTP",
+      "description": "A one-time code input whose slots are square field-height cells, each in its own well.",
+      "registryDependencies": [
+        "darkone-core",
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/input-otp.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-pin-input",
+      "type": "registry:component",
+      "title": "PIN Input",
+      "description": "A PIN input whose slots are square field-height cells, each in its own well, with a solid focus ring.",
+      "registryDependencies": [
+        "darkone-core",
+        "pin-input"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/pin-input.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-number-field",
+      "type": "registry:component",
+      "title": "Number Field",
+      "description": "A stepped number input that sits in its own well, or in a DarkOneField, with steppers the height of the field.",
+      "registryDependencies": [
+        "darkone-core",
+        "number-field"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/number-field.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/DarkOneNumberFieldInput.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-native-select",
+      "type": "registry:component",
+      "title": "Native Select",
+      "description": "The browser's select, on the field surface, joining a DarkOneField well.",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "native-select"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/native-select.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/DarkOneNativeSelect.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-combobox",
+      "type": "registry:component",
+      "title": "Combobox",
+      "description": "A searchable select whose anchor is the well, joining a DarkOneField, with a square list as wide as the anchor.",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "combobox"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/combobox.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/DarkOneComboboxAnchor.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-calendar",
+      "type": "registry:component",
+      "title": "Calendar",
+      "description": "A date calendar with square day cells and navigation, and tracked uppercase weekday labels.",
+      "registryDependencies": [
+        "darkone-core",
+        "calendar"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/calendar.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-range-calendar",
+      "type": "registry:component",
+      "title": "Range Calendar",
+      "description": "A date range calendar with square day cells, a square range band, and tracked uppercase weekday labels.",
+      "registryDependencies": [
+        "darkone-core",
+        "range-calendar"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/range-calendar.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-form",
+      "type": "registry:component",
+      "title": "Form",
+      "description": "vee-validate form parts with the label and rhythm of a DarkOneField, for validated forms built from DarkOne controls.",
+      "registryDependencies": [
+        "darkone-core",
+        "form"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/form.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-button-group",
+      "type": "registry:component",
+      "title": "Button Group",
+      "description": "DarkOneButtons joined into one square strip, with separators and text between them.",
+      "registryDependencies": [
+        "darkone-core",
+        "button-group"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/button-group.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-accordion",
+      "type": "registry:component",
+      "title": "Accordion",
+      "description": "Stacked disclosure sections whose triggers are tracked, uppercase rows rather than padded headings.",
+      "registryDependencies": [
+        "darkone-core",
+        "accordion"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/accordion.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-aspect-ratio",
+      "type": "registry:component",
+      "title": "Aspect Ratio",
+      "description": "A box held to a ratio, passed through unchanged so frames and previews size the DarkOne way.",
+      "registryDependencies": [
+        "darkone-core",
+        "aspect-ratio"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/aspect-ratio.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-breadcrumb",
+      "type": "registry:component",
+      "title": "Breadcrumb",
+      "description": "A dense path in small type, its ellipsis no taller than a row.",
+      "registryDependencies": [
+        "darkone-core",
+        "breadcrumb"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/breadcrumb.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-carousel",
+      "type": "registry:component",
+      "title": "Carousel",
+      "description": "A slide track whose round arrows become square actions at action height.",
+      "registryDependencies": [
+        "darkone-core",
+        "carousel"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/carousel.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-collapsible",
+      "type": "registry:component",
+      "title": "Collapsible",
+      "description": "A show-and-hide region, passed through so its trigger can be a DarkOneButton.",
+      "registryDependencies": [
+        "darkone-core",
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/collapsible.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-navigation-menu",
+      "type": "registry:component",
+      "title": "Navigation Menu",
+      "description": "Square triggers at action height over a flat, square viewport, with the trigger look for top-level links.",
+      "registryDependencies": [
+        "darkone-core",
+        "navigation-menu"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/navigation-menu.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-pagination",
+      "type": "registry:component",
+      "title": "Pagination",
+      "description": "Page controls that read as DarkOneButtons: square, action height, small tracked type.",
+      "registryDependencies": [
+        "darkone-core",
+        "pagination"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/pagination.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-resizable",
+      "type": "registry:component",
+      "title": "Resizable",
+      "description": "Split panels with a square grip on the handle.",
+      "registryDependencies": [
+        "darkone-core",
+        "resizable"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/resizable.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-scroll-area",
+      "type": "registry:component",
+      "title": "Scroll Area",
+      "description": "A styled scroll region with a square thumb and the solid focus ring.",
+      "registryDependencies": [
+        "darkone-core",
+        "scroll-area"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/scroll-area.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-sidebar",
+      "type": "registry:component",
+      "title": "Sidebar",
+      "description": "An app sidebar of square rows at row height, with tracked group labels and a flat floating panel.",
+      "registryDependencies": [
+        "darkone-core",
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/sidebar.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-dialog",
+      "type": "registry:component",
+      "title": "Dialog",
+      "description": "A flat, square dialog whose close button is squared to match.",
+      "registryDependencies": [
+        "darkone-core",
+        "dialog"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/dialog.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-sheet",
+      "type": "registry:component",
+      "title": "Sheet",
+      "description": "A flat side panel with a square close button.",
+      "registryDependencies": [
+        "darkone-core",
+        "sheet"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/sheet.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-drawer",
+      "type": "registry:component",
+      "title": "Drawer",
+      "description": "A drawer with a square leading edge and grab handle, in every direction.",
+      "registryDependencies": [
+        "darkone-core",
+        "drawer"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/drawer.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-popover",
+      "type": "registry:component",
+      "title": "Popover",
+      "description": "A flat, square popover with tighter padding.",
+      "registryDependencies": [
+        "darkone-core",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/popover.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-hover-card",
+      "type": "registry:component",
+      "title": "Hover Card",
+      "description": "A flat, square preview card with tighter padding.",
+      "registryDependencies": [
+        "darkone-core",
+        "hover-card"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/hover-card.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-tooltip",
+      "type": "registry:component",
+      "title": "Tooltip",
+      "description": "A square, tracked tooltip.",
+      "registryDependencies": [
+        "darkone-core",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/tooltip.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-context-menu",
+      "type": "registry:component",
+      "title": "Context Menu",
+      "description": "A right-click menu with the select's flat list, short rows and uppercase labels.",
+      "registryDependencies": [
+        "darkone-core",
+        "context-menu"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/context-menu.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-dropdown-menu",
+      "type": "registry:component",
+      "title": "Dropdown Menu",
+      "description": "A menu with the select's flat list, short rows and uppercase labels.",
+      "registryDependencies": [
+        "darkone-core",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/dropdown-menu.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-menubar",
+      "type": "registry:component",
+      "title": "Menubar",
+      "description": "A recessed bar at field height whose menus match the dropdown.",
+      "registryDependencies": [
+        "darkone-core",
+        "menubar"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/menubar.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-command",
+      "type": "registry:component",
+      "title": "Command",
+      "description": "A command list with a recessed search well and uppercase group headings, inline or in a DarkOne dialog.",
+      "dependencies": [
+        "@vueuse/core",
+        "reka-ui"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "command",
+        "darkone-dialog"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/command.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/DarkOneCommandDialog.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-data-table",
+      "type": "registry:block",
+      "title": "Data Table",
+      "description": "A filterable, sortable, paginated table on TanStack Table, with row selection and a column-visibility menu, drawn in DarkOne table, input, button and menu parts.",
+      "dependencies": [
+        "@lucide/vue",
+        "@tanstack/vue-table"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-table",
+        "darkone-dropdown-menu",
+        "darkone-button",
+        "darkone-input"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneDataTable.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-date-picker",
+      "type": "registry:block",
+      "title": "Date Picker",
+      "description": "A field-height trigger that opens a DarkOne calendar in a popover, standing in its own well alone and joining a DarkOneField well inside one.",
+      "dependencies": [
+        "@internationalized/date",
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-calendar",
+        "darkone-popover"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneDatePicker.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-typography",
+      "type": "registry:block",
+      "title": "Typography",
+      "description": "A prose container that styles the plain HTML slotted into it, headings to tables, in DarkOne type, for wrapping rendered markdown.",
+      "registryDependencies": [
+        "darkone-core"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneTypography.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-chat",
+      "type": "registry:block",
+      "title": "Chat",
+      "description": "An agent thread: turns with reasoning and command steps, an empty state, and a composer that emits what the person sends.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-bubble",
+        "darkone-code-block",
+        "darkone-dropdown-menu",
+        "darkone-empty",
+        "darkone-input-group",
+        "darkone-message",
+        "darkone-message-scroller",
+        "darkone-tooltip",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneChat.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-chat-message",
+      "type": "registry:block",
+      "title": "Message",
+      "description": "One turn with its actions: copy and edit under the person's, copy, rating and retry under the agent's.",
+      "dependencies": [
+        "@lucide/vue",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-bubble",
+        "darkone-message",
+        "darkone-tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneChatMessage.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-checkpoint",
+      "type": "registry:block",
+      "title": "Checkpoint",
+      "description": "A thread with restore points set as separator bands under the agent's turns.",
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-bubble",
+        "darkone-marker",
+        "darkone-message"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneCheckpoint.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-confirmation",
+      "type": "registry:block",
+      "title": "Confirmation",
+      "description": "A thread where the agent asks before it runs a command, with approve and deny on the request.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-bubble",
+        "darkone-item",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneConfirmation.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-suggestion",
+      "type": "registry:block",
+      "title": "Suggestion",
+      "description": "A row of prompts to pick from above a composer, with the last turn above them.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-bubble",
+        "darkone-input-group",
+        "darkone-message"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneSuggestion.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-model-selector",
+      "type": "registry:block",
+      "title": "Model Selector",
+      "description": "Two menus for an input group footer: one picks the model the agent runs, the other picks how hard it thinks.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-dropdown-menu",
+        "darkone-input-group"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneModelSelector.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-prompt-input",
+      "type": "registry:block",
+      "title": "Prompt Input",
+      "description": "A message field with attachment chips, the model and effort menus, and a square send button.",
+      "dependencies": [
+        "@lucide/vue",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-attachment",
+        "darkone-input-group",
+        "darkone-model-selector"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOnePromptInput.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-context",
+      "type": "registry:block",
+      "title": "Context",
+      "description": "How much of the context window the conversation has used: a hover card over a square progress, with an optional token and cost breakdown.",
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-hover-card",
+        "darkone-progress"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneContext.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-inline-citation",
+      "type": "registry:block",
+      "title": "Inline Citation",
+      "description": "A source in the sentence that opens on hover.",
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-hover-card"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneInlineCitation.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-file-tree",
+      "type": "registry:block",
+      "title": "File Tree",
+      "description": "The files the agent changed, as square folder rows that open and close.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-collapsible"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneFileTree.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/blocks/DarkOneFileTreeNode.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-reasoning",
+      "type": "registry:block",
+      "title": "Reasoning",
+      "description": "The model's thinking as a trace line that shimmers while it streams and folds away once done.",
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneReasoning.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-plan",
+      "type": "registry:block",
+      "title": "Plan",
+      "description": "An agent's plan as a collapsible trace, with each step done, running or pending and a count of those done.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOnePlan.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-queue",
+      "type": "registry:block",
+      "title": "Queue",
+      "description": "An agent's todo list, split into what is left to do and what is completed.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneQueue.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-task",
+      "type": "registry:block",
+      "title": "Task",
+      "description": "Tasks an agent works through, each a collapsible trace of its steps that stays open while it runs.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneTask.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-sources",
+      "type": "registry:block",
+      "title": "Sources",
+      "description": "The pages an answer cites, each listed once, under a collapsible count.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneSources.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-chain-of-thought",
+      "type": "registry:block",
+      "title": "Chain of Thought",
+      "description": "An agent's research steps under one summary line, each opening onto its log, links or files.",
+      "dependencies": [
+        "@lucide/vue",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace",
+        "darkone-code-block",
+        "darkone-badge"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneChainOfThought.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-tool",
+      "type": "registry:block",
+      "title": "Tool",
+      "description": "A tool call the agent makes, from input to output, as a trace line that opens on its output, with an approval row for calls waiting on the person.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-bubble",
+        "darkone-button",
+        "darkone-code-block",
+        "darkone-item",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneTool.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-terminal",
+      "type": "registry:block",
+      "title": "Terminal",
+      "description": "A shell command the agent runs, as a trace line whose output streams into a recessed well underneath.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-bubble",
+        "darkone-code-block",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneTerminal.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-stack-trace",
+      "type": "registry:block",
+      "title": "Stack Trace",
+      "description": "A failed tool call titled by its error, opening on the app frames as links, with the framework frames folded away.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-bubble",
+        "darkone-code-block",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneStackTrace.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-test-results",
+      "type": "registry:block",
+      "title": "Test Results",
+      "description": "A test run as one summary line that opens on each suite, its tests and the error for each failure.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-bubble",
+        "darkone-code-block",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneTestResults.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-subagent",
+      "type": "registry:block",
+      "title": "Subagent",
+      "description": "Work handed to a subagent, as one line that opens on the commands it ran and what it reported.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-bubble",
+        "darkone-code-block",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneSubagent.vue",
           "type": "registry:component"
         }
       ]
@@ -381,7 +1710,79 @@
         "darkone-progress",
         "darkone-separator",
         "darkone-skeleton",
-        "darkone-alert-dialog"
+        "darkone-alert-dialog",
+        "darkone-code-block",
+        "darkone-attachment",
+        "darkone-bubble",
+        "darkone-marker",
+        "darkone-message",
+        "darkone-message-scroller",
+        "darkone-trace",
+        "darkone-questionnaire",
+        "darkone-alert",
+        "darkone-avatar",
+        "darkone-empty",
+        "darkone-item",
+        "darkone-kbd",
+        "darkone-spinner",
+        "darkone-table",
+        "darkone-chart",
+        "darkone-stepper",
+        "darkone-sonner",
+        "darkone-input-group",
+        "darkone-input-otp",
+        "darkone-pin-input",
+        "darkone-number-field",
+        "darkone-native-select",
+        "darkone-combobox",
+        "darkone-calendar",
+        "darkone-range-calendar",
+        "darkone-form",
+        "darkone-button-group",
+        "darkone-accordion",
+        "darkone-aspect-ratio",
+        "darkone-breadcrumb",
+        "darkone-carousel",
+        "darkone-collapsible",
+        "darkone-navigation-menu",
+        "darkone-pagination",
+        "darkone-resizable",
+        "darkone-scroll-area",
+        "darkone-sidebar",
+        "darkone-dialog",
+        "darkone-sheet",
+        "darkone-drawer",
+        "darkone-popover",
+        "darkone-hover-card",
+        "darkone-tooltip",
+        "darkone-context-menu",
+        "darkone-dropdown-menu",
+        "darkone-menubar",
+        "darkone-command",
+        "darkone-data-table",
+        "darkone-date-picker",
+        "darkone-typography",
+        "darkone-chat",
+        "darkone-chat-message",
+        "darkone-checkpoint",
+        "darkone-confirmation",
+        "darkone-suggestion",
+        "darkone-model-selector",
+        "darkone-prompt-input",
+        "darkone-context",
+        "darkone-inline-citation",
+        "darkone-file-tree",
+        "darkone-reasoning",
+        "darkone-plan",
+        "darkone-queue",
+        "darkone-task",
+        "darkone-sources",
+        "darkone-chain-of-thought",
+        "darkone-tool",
+        "darkone-terminal",
+        "darkone-stack-trace",
+        "darkone-test-results",
+        "darkone-subagent"
       ]
     }
   ]

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { DarkOneLabel, DarkOneSwitch } from '@/components/darkone';
+import { DarkOneLabel } from '@/components/darkone/label';
+import { DarkOneSwitch } from '@/components/darkone/switch';
 import SpecimenRow from '../SpecimenRow.vue';
 
 const enabled = ref(true);

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { DarkOneToggleGroup, DarkOneToggleGroupItem } from '@/components/darkone';
+import { DarkOneToggleGroup, DarkOneToggleGroupItem } from '@/components/darkone/toggle-group';
 import SpecimenRow from '../SpecimenRow.vue';
 
 const view = ref('grid');

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { DarkOneField, DarkOneInput } from '@/components/darkone';
+import DarkOneField from '@/components/darkone/DarkOneField.vue';
+import DarkOneInput from '@/components/darkone/DarkOneInput.vue';
 import SpecimenRow from '../SpecimenRow.vue';
 
 const name = ref('Portrait study');
