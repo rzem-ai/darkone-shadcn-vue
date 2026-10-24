@@ -152,7 +152,7 @@ function isFinished(part: ToolPart) {
           </div>
           <DarkOneTooltip>
             <DarkOneTooltipTrigger as-child>
-              <DarkOneButton size="icon" aria-label="Reset conversation" :disabled="busy" @click="reset">
+              <DarkOneButton size="icon-action" aria-label="Reset conversation" :disabled="busy" @click="reset">
                 <RotateCwIcon />
               </DarkOneButton>
             </DarkOneTooltipTrigger>
