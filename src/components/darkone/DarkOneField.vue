@@ -5,11 +5,11 @@ import { darkOneFieldKey } from './fieldContext';
 export type DarkOneFieldTone = 'positive' | 'caution' | 'negative';
 
 /** Theme tokens only: the success and destructive hues, and the chart hue that stands in for amber, which the palette lacks.
- * The tone colours the left edge alone; the other three are the plain field border. */
+ * The tone colours a 2px left edge alone; the other three are the plain field border. */
 const EDGE: Record<DarkOneFieldTone, string> = {
-  positive: 'border-l-chart-4 focus-within:border-l-chart-4',
-  caution: 'border-l-chart-3 focus-within:border-l-chart-3',
-  negative: 'border-l-destructive focus-within:border-l-destructive',
+  positive: 'border-l-2 border-l-chart-4 focus-within:border-l-chart-4',
+  caution: 'border-l-2 border-l-chart-3 focus-within:border-l-chart-3',
+  negative: 'border-l-2 border-l-destructive focus-within:border-l-destructive',
 };
 
 /** The well owns the border and focus ring; DarkOne controls opt in through context. */

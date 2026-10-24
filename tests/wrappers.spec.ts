@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils';
 import { defineComponent, h, nextTick } from 'vue';
 import { Checkbox } from '../src/components/ui/checkbox';
 import { safeHref } from '../src/components/darkone/safeHref';
+import { DarkOneAlert } from '../src/components/darkone/alert';
 import { DarkOneButton, DarkOneCheckbox, DarkOneField, DarkOneInput, DarkOneSwitch, DarkOneTextarea, createDarkOneControl } from '../src/components/darkone';
 
 describe('DarkOneButton', () => {
@@ -75,10 +76,30 @@ describe('DarkOneField', () => {
   it('carries a tone on the left edge alone, the rest the plain field border', () => {
     const field = mount(DarkOneField, { props: { label: 'Key', value: 'Rejected', tone: 'negative' } });
     const well = field.get('[data-darkone-well]').classes();
-    expect(well).toEqual(expect.arrayContaining(['border-darkone-field-border', 'focus-within:border-ring', 'border-l-destructive', 'focus-within:border-l-destructive']));
+    expect(well).toEqual(expect.arrayContaining(['border-darkone-field-border', 'focus-within:border-ring', 'border-l-2', 'border-l-destructive', 'focus-within:border-l-destructive']));
     expect(well).not.toContain('border-destructive');
     expect(field.get('[data-darkone-field-value]').text()).toBe('Rejected');
     field.unmount();
+  });
+});
+
+describe('DarkOneAlert', () => {
+  it.each([
+    [{ tone: 'positive' }, 'border-l-chart-4'],
+    [{ tone: 'caution' }, 'border-l-chart-3'],
+    [{ variant: 'destructive' }, 'border-l-destructive'],
+  ] as const)('carries %o on a 2px left edge alone', (props, edge) => {
+    const alert = mount(DarkOneAlert, { props, slots: { default: 'Run 1042 finished' } });
+    expect(alert.classes()).toEqual(expect.arrayContaining(['border', 'border-l-2', edge]));
+    expect(alert.classes()).not.toEqual(expect.arrayContaining([expect.stringMatching(/^border-(chart-\d|destructive)$/)]));
+    alert.unmount();
+  });
+
+  it('keeps the plain border all round without a tone', () => {
+    const alert = mount(DarkOneAlert, { slots: { default: 'The refiner is off' } });
+    expect(alert.classes()).toContain('border');
+    expect(alert.classes()).not.toContain('border-l-2');
+    alert.unmount();
   });
 });
 
