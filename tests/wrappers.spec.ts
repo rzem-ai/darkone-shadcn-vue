@@ -72,9 +72,11 @@ describe('DarkOneField', () => {
     host.unmount();
   });
 
-  it('carries a tone in the well border', () => {
+  it('carries a tone on the left edge alone, the rest the plain field border', () => {
     const field = mount(DarkOneField, { props: { label: 'Key', value: 'Rejected', tone: 'negative' } });
-    expect(field.get('[data-darkone-well]').classes()).toContain('border-destructive');
+    const well = field.get('[data-darkone-well]').classes();
+    expect(well).toEqual(expect.arrayContaining(['border-darkone-field-border', 'focus-within:border-ring', 'border-l-destructive', 'focus-within:border-l-destructive']));
+    expect(well).not.toContain('border-destructive');
     expect(field.get('[data-darkone-field-value]').text()).toBe('Rejected');
     field.unmount();
   });
