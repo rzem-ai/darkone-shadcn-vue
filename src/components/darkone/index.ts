@@ -12,6 +12,7 @@ export * from './alert-dialog';
 export * from './badge';
 export * from './card';
 export * from './checkbox';
+export * from './code-block';
 export * from './label';
 export * from './progress';
 export * from './radio-group';

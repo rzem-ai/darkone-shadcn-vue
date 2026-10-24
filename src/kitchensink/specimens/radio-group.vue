@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { DarkOneLabel, DarkOneRadioGroup, DarkOneRadioGroupItem } from '@/components/darkone';
+import { DarkOneLabel } from '@/components/darkone/label';
+import { DarkOneRadioGroup, DarkOneRadioGroupItem } from '@/components/darkone/radio-group';
 import SpecimenRow from '../SpecimenRow.vue';
 
 const size = ref('square');

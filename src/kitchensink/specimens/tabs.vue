@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DarkOneTabs, DarkOneTabsContent, DarkOneTabsList, DarkOneTabsTrigger } from '@/components/darkone';
+import { DarkOneTabs, DarkOneTabsContent, DarkOneTabsList, DarkOneTabsTrigger } from '@/components/darkone/tabs';
 import SpecimenRow from '../SpecimenRow.vue';
 </script>
 

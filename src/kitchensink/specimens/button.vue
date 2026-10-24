@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PlusIcon, Trash2Icon } from '@lucide/vue';
-import { DarkOneButton } from '@/components/darkone';
+import DarkOneButton from '@/components/darkone/DarkOneButton.vue';
 import SpecimenRow from '../SpecimenRow.vue';
 </script>
 

@@ -1,16 +1,6 @@
 <script setup lang="ts">
-import {
-  DarkOneAlertDialog,
-  DarkOneAlertDialogAction,
-  DarkOneAlertDialogCancel,
-  DarkOneAlertDialogContent,
-  DarkOneAlertDialogDescription,
-  DarkOneAlertDialogFooter,
-  DarkOneAlertDialogHeader,
-  DarkOneAlertDialogTitle,
-  DarkOneAlertDialogTrigger,
-  DarkOneButton,
-} from '@/components/darkone';
+import DarkOneButton from '@/components/darkone/DarkOneButton.vue';
+import { DarkOneAlertDialog, DarkOneAlertDialogAction, DarkOneAlertDialogCancel, DarkOneAlertDialogContent, DarkOneAlertDialogDescription, DarkOneAlertDialogFooter, DarkOneAlertDialogHeader, DarkOneAlertDialogTitle, DarkOneAlertDialogTrigger } from '@/components/darkone/alert-dialog';
 import SpecimenRow from '../SpecimenRow.vue';
 </script>
 

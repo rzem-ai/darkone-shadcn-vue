@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { BoldIcon, LockIcon } from '@lucide/vue';
-import { DarkOneToggle } from '@/components/darkone';
+import { DarkOneToggle } from '@/components/darkone/toggle';
 import SpecimenRow from '../SpecimenRow.vue';
 
 const locked = ref(true);

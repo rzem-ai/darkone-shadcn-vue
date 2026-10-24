@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DarkOneSkeleton } from '@/components/darkone';
+import { DarkOneSkeleton } from '@/components/darkone/skeleton';
 import SpecimenRow from '../SpecimenRow.vue';
 </script>
 

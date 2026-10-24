@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { DarkOneCheckbox, DarkOneLabel } from '@/components/darkone';
+import { DarkOneCheckbox } from '@/components/darkone/checkbox';
+import { DarkOneLabel } from '@/components/darkone/label';
 import SpecimenRow from '../SpecimenRow.vue';
 
 const checked = ref<boolean | 'indeterminate'>(true);

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { DarkOneTagsInput, DarkOneTagsInputInput, DarkOneTagsInputItem, DarkOneTagsInputItemDelete, DarkOneTagsInputItemText } from '@/components/darkone';
+import { DarkOneTagsInput, DarkOneTagsInputInput, DarkOneTagsInputItem, DarkOneTagsInputItemDelete, DarkOneTagsInputItemText } from '@/components/darkone/tags-input';
 import SpecimenRow from '../SpecimenRow.vue';
 
 const tags = ref(['portrait', 'studio']);

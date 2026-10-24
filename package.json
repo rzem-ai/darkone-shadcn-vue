@@ -29,6 +29,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-vue": "^8.6.0",
     "reka-ui": "^2.10.1",
+    "shiki": "^4.5.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3",
     "vaul-vue": "^0.4.1",

@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync } from 'node:fs';
-import { basename, join, resolve } from 'node:path';
+import { basename, join, relative, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import registry from '../registry.json';
 import { UNSHOWN } from '../src/kitchensink/catalogue';
@@ -15,6 +15,13 @@ type Item = (typeof registry.items)[number] & { dependencies?: string[]; registr
 const items = registry.items as Item[];
 const byName = new Map(items.map((item) => [item.name, item]));
 
+/** Every file under the DarkOne directory, blocks/ included, relative to it. */
+function darkOneFiles(): string[] {
+  return readdirSync(join(ROOT, DARKONE), { recursive: true, withFileTypes: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) => relative(join(ROOT, DARKONE), join(entry.parentPath, entry.name)));
+}
+
 function imports(path: string): string[] {
   const source = readFileSync(join(ROOT, path), 'utf8');
   return [...source.matchAll(/(?:import|export)\s[^'"]*?from\s+['"]([^'"]+)['"]/g)].map((match) => match[1]!);
@@ -29,7 +36,7 @@ function packageName(specifier: string) {
 describe('registry.json', () => {
   it('ships every DarkOne file in exactly one item', () => {
     const shipped = items.flatMap((item) => (item.files ?? []).map((file) => file.path));
-    const onDisk = readdirSync(join(ROOT, DARKONE))
+    const onDisk = darkOneFiles()
       .filter((file) => !UNSHIPPED.has(file))
       .map((file) => `${DARKONE}/${file}`);
     expect(shipped.toSorted()).toEqual(onDisk.toSorted());
@@ -42,14 +49,26 @@ describe('registry.json', () => {
     expect(declared.toSorted()).toEqual([...used].toSorted());
   });
 
-  it.each(items.filter((item) => item.files?.length))('$name can reach every sibling file it imports', (item) => {
-    const own = new Set(item.files!.map((file) => basename(file.path)));
-    const reachable = new Set([...own, ...(item.registryDependencies ?? []).flatMap((dep) => byName.get(dep)?.files?.map((file) => basename(file.path)) ?? [])]);
-    for (const specifier of item.files!.flatMap((file) => imports(file.path)).filter((specifier) => specifier.startsWith('./'))) {
-      const target = specifier.slice(2);
-      const found = [...reachable].some((file) => file === target || file.replace(/\.ts$/, '') === target);
-      expect(found, `${item.name} imports ${specifier}, which neither it nor its DarkOne dependencies ship`).toBe(true);
+  it.each(items.filter((item) => item.files?.length))('$name can reach every DarkOne file it imports', (item) => {
+    const shippedBy = (name: string) => byName.get(name)?.files?.map((file) => file.path) ?? [];
+    const reachable = new Set([...shippedBy(item.name), ...(item.registryDependencies ?? []).flatMap(shippedBy)]);
+    for (const file of item.files!) {
+      for (const specifier of imports(file.path)) {
+        // Relative, or through the alias, which a block uses to reach the wrappers it is built from.
+        const target =
+          specifier.startsWith('.') ? join(file.path, '..', specifier)
+          : specifier.startsWith('@/components/darkone/') ? specifier.replace(/^@\/components\//, 'src/components/')
+          : null;
+        if (!target) continue;
+        const found = [...reachable].some((path) => path === target || path.replace(/\.ts$/, '') === target);
+        expect(found, `${item.name} imports ${specifier}, which neither it nor its DarkOne dependencies ship`).toBe(true);
+      }
     }
+  });
+
+  it.each(items.filter((item) => item.files?.length))('$name is a block exactly when it ships from blocks/', (item) => {
+    const block = item.files!.some((file) => file.path.startsWith(`${DARKONE}/blocks/`));
+    expect(item.type).toBe(block ? 'registry:block' : item.name === 'darkone-core' ? 'registry:lib' : 'registry:component');
   });
 
   it.each(items.filter((item) => item.files?.length))('$name declares the packages it imports', (item) => {
@@ -76,10 +95,18 @@ describe('registry.json', () => {
   });
 });
 
+describe('kitchensink specimens', () => {
+  /** The kitchensink shows each specimen's source as the way to use the item, so it must paste into a consumer as written. */
+  it('import the way a consumer does, one family file at a time, never through the barrel', () => {
+    const offenders = readdirSync(join(ROOT, 'src/kitchensink/specimens')).filter((file) => imports(`src/kitchensink/specimens/${file}`).includes('@/components/darkone'));
+    expect(offenders).toEqual([]);
+  });
+});
+
 describe('DarkOne classes', () => {
   /** tailwind-merge in the consumer's `cn` recognises a token-named colour, but not token-named geometry. */
   it('writes geometry against the variable, so any cn can merge it with the vendor class', () => {
-    const offenders = readdirSync(join(ROOT, DARKONE))
+    const offenders = darkOneFiles()
       .filter((file) => /\.(ts|vue)$/.test(file))
       .flatMap((file) =>
         [...readFileSync(join(ROOT, DARKONE, file), 'utf8').matchAll(/(?<![\w-])([a-z][\w-]*?)-darkone\b[\w-]*/g)]

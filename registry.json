@@ -356,6 +356,22 @@
       ]
     },
     {
+      "name": "darkone-code-block",
+      "type": "registry:component",
+      "title": "Code Block",
+      "description": "Highlighted code in a recessed well, with a path band and a copy action.",
+      "registryDependencies": [
+        "darkone-core",
+        "code-block"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/code-block.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "darkone",
       "type": "registry:item",
       "title": "Everything",
@@ -381,7 +397,8 @@
         "darkone-progress",
         "darkone-separator",
         "darkone-skeleton",
-        "darkone-alert-dialog"
+        "darkone-alert-dialog",
+        "darkone-code-block"
       ]
     }
   ]
