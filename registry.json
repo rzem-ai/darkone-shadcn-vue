@@ -1,0 +1,388 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry.json",
+  "name": "darkone",
+  "homepage": "https://rzem-ai.github.io/darkone-shadcn-vue/",
+  "items": [
+    {
+      "name": "darkone-core",
+      "type": "registry:lib",
+      "title": "DarkOne core",
+      "description": "The control factory, the field context and the DarkOne tokens. Every other item depends on it.",
+      "dependencies": [
+        "clsx"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/createDarkOneControl.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/fieldContext.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-button",
+      "type": "registry:component",
+      "title": "Button",
+      "description": "A square action, outline by default, in sentence case.",
+      "dependencies": [
+        "reka-ui"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/DarkOneButton.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-input",
+      "type": "registry:component",
+      "title": "Input",
+      "description": "A single-line input that sits in its own well, or in a DarkOneField.",
+      "registryDependencies": [
+        "darkone-core",
+        "input"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/DarkOneInput.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-textarea",
+      "type": "registry:component",
+      "title": "Textarea",
+      "description": "A multi-line input that grows, in its own well or a DarkOneField.",
+      "registryDependencies": [
+        "darkone-core",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/DarkOneTextarea.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-field",
+      "type": "registry:component",
+      "title": "Field",
+      "description": "A labelled well with help text and a tone. DarkOne controls inside it give up their own border.",
+      "registryDependencies": [
+        "darkone-core"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/DarkOneField.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-select",
+      "type": "registry:component",
+      "title": "Select",
+      "description": "A select whose trigger joins a DarkOneField well.",
+      "dependencies": [
+        "reka-ui",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "select"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/select.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/DarkOneSelectTrigger.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-checkbox",
+      "type": "registry:component",
+      "title": "Checkbox",
+      "description": "A square checkbox.",
+      "registryDependencies": [
+        "darkone-core",
+        "checkbox"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/checkbox.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-switch",
+      "type": "registry:component",
+      "title": "Switch",
+      "description": "A square switch.",
+      "registryDependencies": [
+        "darkone-core",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/switch.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-slider",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "A slider with a square track and thumb.",
+      "registryDependencies": [
+        "darkone-core",
+        "slider"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/slider.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-radio-group",
+      "type": "registry:component",
+      "title": "Radio group",
+      "description": "Square radio items on the field surface.",
+      "registryDependencies": [
+        "darkone-core",
+        "radio-group"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/radio-group.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-toggle",
+      "type": "registry:component",
+      "title": "Toggle",
+      "description": "A square pressed-state button.",
+      "registryDependencies": [
+        "darkone-core",
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/toggle.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-toggle-group",
+      "type": "registry:component",
+      "title": "Toggle group",
+      "description": "A row of square toggles, joined or spaced.",
+      "registryDependencies": [
+        "darkone-core",
+        "toggle-group"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/toggle-group.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-tags-input",
+      "type": "registry:component",
+      "title": "Tags input",
+      "description": "A tags input on the field surface.",
+      "registryDependencies": [
+        "darkone-core",
+        "tags-input"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/tags-input.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-label",
+      "type": "registry:component",
+      "title": "Label",
+      "description": "An uppercase, tracked label.",
+      "registryDependencies": [
+        "darkone-core",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/label.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-badge",
+      "type": "registry:component",
+      "title": "Badge",
+      "description": "A square badge.",
+      "registryDependencies": [
+        "darkone-core",
+        "badge"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/badge.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-card",
+      "type": "registry:component",
+      "title": "Card",
+      "description": "A flat, square card with tighter padding.",
+      "registryDependencies": [
+        "darkone-core",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/card.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-tabs",
+      "type": "registry:component",
+      "title": "Tabs",
+      "description": "Square tabs at field height.",
+      "registryDependencies": [
+        "darkone-core",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/tabs.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-progress",
+      "type": "registry:component",
+      "title": "Progress",
+      "description": "A square progress bar.",
+      "registryDependencies": [
+        "darkone-core",
+        "progress"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/progress.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-separator",
+      "type": "registry:component",
+      "title": "Separator",
+      "description": "The vendor separator with the solid focus ring.",
+      "registryDependencies": [
+        "darkone-core",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/separator.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "A square loading placeholder.",
+      "registryDependencies": [
+        "darkone-core",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/skeleton.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-alert-dialog",
+      "type": "registry:component",
+      "title": "Alert dialog",
+      "description": "A square confirmation dialog whose actions keep Reka focus handling.",
+      "registryDependencies": [
+        "darkone-core",
+        "alert-dialog"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/alert-dialog.ts",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone",
+      "type": "registry:item",
+      "title": "Everything",
+      "description": "Every DarkOne component in one install.",
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-input",
+        "darkone-textarea",
+        "darkone-field",
+        "darkone-select",
+        "darkone-checkbox",
+        "darkone-switch",
+        "darkone-slider",
+        "darkone-radio-group",
+        "darkone-toggle",
+        "darkone-toggle-group",
+        "darkone-tags-input",
+        "darkone-label",
+        "darkone-badge",
+        "darkone-card",
+        "darkone-tabs",
+        "darkone-progress",
+        "darkone-separator",
+        "darkone-skeleton",
+        "darkone-alert-dialog"
+      ]
+    }
+  ]
+}
