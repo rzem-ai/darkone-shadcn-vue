@@ -7,7 +7,7 @@
       "name": "darkone-core",
       "type": "registry:lib",
       "title": "DarkOne Core",
-      "description": "The control factory, the field context and the DarkOne tokens. Every other item depends on it.",
+      "description": "The control factory, the field context, the link guard and the DarkOne tokens. Every other item depends on it.",
       "dependencies": [
         "clsx"
       ],
@@ -21,6 +21,10 @@
         },
         {
           "path": "src/components/darkone/fieldContext.ts",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/safeHref.ts",
           "type": "registry:component"
         }
       ]
@@ -1180,6 +1184,507 @@
       ]
     },
     {
+      "name": "darkone-data-table",
+      "type": "registry:block",
+      "title": "Data Table",
+      "description": "A filterable, sortable, paginated table on TanStack Table, with row selection and a column-visibility menu, drawn in DarkOne table, input, button and menu parts.",
+      "dependencies": [
+        "@lucide/vue",
+        "@tanstack/vue-table"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-table",
+        "darkone-dropdown-menu",
+        "darkone-button",
+        "darkone-input"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneDataTable.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-date-picker",
+      "type": "registry:block",
+      "title": "Date Picker",
+      "description": "A field-height trigger that opens a DarkOne calendar in a popover, standing in its own well alone and joining a DarkOneField well inside one.",
+      "dependencies": [
+        "@internationalized/date",
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-calendar",
+        "darkone-popover"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneDatePicker.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-typography",
+      "type": "registry:block",
+      "title": "Typography",
+      "description": "A prose container that styles the plain HTML slotted into it, headings to tables, in DarkOne type, for wrapping rendered markdown.",
+      "registryDependencies": [
+        "darkone-core"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneTypography.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-chat",
+      "type": "registry:block",
+      "title": "Chat",
+      "description": "An agent thread: turns with reasoning and command steps, an empty state, and a composer that emits what the person sends.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-bubble",
+        "darkone-code-block",
+        "darkone-dropdown-menu",
+        "darkone-empty",
+        "darkone-input-group",
+        "darkone-message",
+        "darkone-message-scroller",
+        "darkone-tooltip",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneChat.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-chat-message",
+      "type": "registry:block",
+      "title": "Message",
+      "description": "One turn with its actions: copy and edit under the person's, copy, rating and retry under the agent's.",
+      "dependencies": [
+        "@lucide/vue",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-bubble",
+        "darkone-message",
+        "darkone-tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneChatMessage.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-checkpoint",
+      "type": "registry:block",
+      "title": "Checkpoint",
+      "description": "A thread with restore points set as separator bands under the agent's turns.",
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-bubble",
+        "darkone-marker",
+        "darkone-message"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneCheckpoint.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-confirmation",
+      "type": "registry:block",
+      "title": "Confirmation",
+      "description": "A thread where the agent asks before it runs a command, with approve and deny on the request.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-bubble",
+        "darkone-item",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneConfirmation.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-suggestion",
+      "type": "registry:block",
+      "title": "Suggestion",
+      "description": "A row of prompts to pick from above a composer, with the last turn above them.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-bubble",
+        "darkone-input-group",
+        "darkone-message"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneSuggestion.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-model-selector",
+      "type": "registry:block",
+      "title": "Model Selector",
+      "description": "Two menus for an input group footer: one picks the model the agent runs, the other picks how hard it thinks.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-dropdown-menu",
+        "darkone-input-group"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneModelSelector.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-prompt-input",
+      "type": "registry:block",
+      "title": "Prompt Input",
+      "description": "A message field with attachment chips, the model and effort menus, and a square send button.",
+      "dependencies": [
+        "@lucide/vue",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-attachment",
+        "darkone-input-group",
+        "darkone-model-selector"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOnePromptInput.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-context",
+      "type": "registry:block",
+      "title": "Context",
+      "description": "How much of the context window the conversation has used: a hover card over a square progress, with an optional token and cost breakdown.",
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-hover-card",
+        "darkone-progress"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneContext.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-inline-citation",
+      "type": "registry:block",
+      "title": "Inline Citation",
+      "description": "A source in the sentence that opens on hover.",
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-hover-card"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneInlineCitation.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-file-tree",
+      "type": "registry:block",
+      "title": "File Tree",
+      "description": "The files the agent changed, as square folder rows that open and close.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-button",
+        "darkone-collapsible"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneFileTree.vue",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/darkone/blocks/DarkOneFileTreeNode.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-reasoning",
+      "type": "registry:block",
+      "title": "Reasoning",
+      "description": "The model's thinking as a trace line that shimmers while it streams and folds away once done.",
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneReasoning.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-plan",
+      "type": "registry:block",
+      "title": "Plan",
+      "description": "An agent's plan as a collapsible trace, with each step done, running or pending and a count of those done.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOnePlan.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-queue",
+      "type": "registry:block",
+      "title": "Queue",
+      "description": "An agent's todo list, split into what is left to do and what is completed.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneQueue.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-task",
+      "type": "registry:block",
+      "title": "Task",
+      "description": "Tasks an agent works through, each a collapsible trace of its steps that stays open while it runs.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneTask.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-sources",
+      "type": "registry:block",
+      "title": "Sources",
+      "description": "The pages an answer cites, each listed once, under a collapsible count.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneSources.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-chain-of-thought",
+      "type": "registry:block",
+      "title": "Chain of Thought",
+      "description": "An agent's research steps under one summary line, each opening onto its log, links or files.",
+      "dependencies": [
+        "@lucide/vue",
+        "@vueuse/core"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-trace",
+        "darkone-code-block",
+        "darkone-badge"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneChainOfThought.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-tool",
+      "type": "registry:block",
+      "title": "Tool",
+      "description": "A tool call the agent makes, from input to output, as a trace line that opens on its output, with an approval row for calls waiting on the person.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-bubble",
+        "darkone-button",
+        "darkone-code-block",
+        "darkone-item",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneTool.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-terminal",
+      "type": "registry:block",
+      "title": "Terminal",
+      "description": "A shell command the agent runs, as a trace line whose output streams into a recessed well underneath.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-bubble",
+        "darkone-code-block",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneTerminal.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-stack-trace",
+      "type": "registry:block",
+      "title": "Stack Trace",
+      "description": "A failed tool call titled by its error, opening on the app frames as links, with the framework frames folded away.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-bubble",
+        "darkone-code-block",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneStackTrace.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-test-results",
+      "type": "registry:block",
+      "title": "Test Results",
+      "description": "A test run as one summary line that opens on each suite, its tests and the error for each failure.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-bubble",
+        "darkone-code-block",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneTestResults.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "darkone-subagent",
+      "type": "registry:block",
+      "title": "Subagent",
+      "description": "Work handed to a subagent, as one line that opens on the commands it ran and what it reported.",
+      "dependencies": [
+        "@lucide/vue"
+      ],
+      "registryDependencies": [
+        "darkone-core",
+        "darkone-bubble",
+        "darkone-code-block",
+        "darkone-message",
+        "darkone-trace"
+      ],
+      "files": [
+        {
+          "path": "src/components/darkone/blocks/DarkOneSubagent.vue",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "darkone",
       "type": "registry:item",
       "title": "Everything",
@@ -1253,7 +1758,31 @@
         "darkone-context-menu",
         "darkone-dropdown-menu",
         "darkone-menubar",
-        "darkone-command"
+        "darkone-command",
+        "darkone-data-table",
+        "darkone-date-picker",
+        "darkone-typography",
+        "darkone-chat",
+        "darkone-chat-message",
+        "darkone-checkpoint",
+        "darkone-confirmation",
+        "darkone-suggestion",
+        "darkone-model-selector",
+        "darkone-prompt-input",
+        "darkone-context",
+        "darkone-inline-citation",
+        "darkone-file-tree",
+        "darkone-reasoning",
+        "darkone-plan",
+        "darkone-queue",
+        "darkone-task",
+        "darkone-sources",
+        "darkone-chain-of-thought",
+        "darkone-tool",
+        "darkone-terminal",
+        "darkone-stack-trace",
+        "darkone-test-results",
+        "darkone-subagent"
       ]
     }
   ]

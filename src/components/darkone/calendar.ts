@@ -8,7 +8,7 @@ export {
   CalendarGridHead as DarkOneCalendarGridHead,
   CalendarGridRow as DarkOneCalendarGridRow,
   CalendarHeader as DarkOneCalendarHeader,
-  type LayoutTypes as DarkOneCalendarLayoutTypes,
+  type LayoutTypes,
 } from '@/components/ui/calendar';
 
 // The vendor root renders its own vendor parts, which a wrapper cannot swap, so it styles them by slot.

@@ -5,11 +5,11 @@ import { createDarkOneControl } from './createDarkOneControl';
 export { CodeBlockToken as DarkOneCodeBlockToken, highlightCode, loadHighlighter, useHighlightedCode } from '@/components/ui/code-block';
 export type { HighlightedToken } from '@/components/ui/code-block';
 // A recessed well, as a field is: the code reads as content to inspect, not a card to act on.
-export const DarkOneCodeBlock = createDarkOneControl(
-  CodeBlock,
-  'DarkOneCodeBlock',
-  'rounded-(--darkone-radius) border-darkone-field-border bg-darkone-field dark:bg-darkone-field has-[>[data-slot=code-block-content]:focus-visible]:ring-ring',
-);
+// The destructive variant keeps its own border, which the field border would otherwise replace.
+export const DarkOneCodeBlock = createDarkOneControl(CodeBlock, 'DarkOneCodeBlock', (props) => [
+  'rounded-(--darkone-radius) bg-darkone-field dark:bg-darkone-field has-[>[data-slot=code-block-content]:focus-visible]:ring-ring',
+  props.variant !== 'destructive' && 'border-darkone-field-border',
+]);
 export const DarkOneCodeBlockHeader = createDarkOneControl(CodeBlockHeader, 'DarkOneCodeBlockHeader', 'h-(--darkone-row-height) border-b border-darkone-field-border pt-0');
 export const DarkOneCodeBlockTitle = createDarkOneControl(CodeBlockTitle, 'DarkOneCodeBlockTitle', 'font-mono text-xs font-normal text-muted-foreground');
 export const DarkOneCodeBlockActions = createDarkOneControl(CodeBlockActions, 'DarkOneCodeBlockActions', '[&_button]:rounded-(--darkone-radius)');

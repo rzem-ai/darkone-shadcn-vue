@@ -7,7 +7,7 @@ export {
   FormControl as DarkOneFormControl,
   FormField as DarkOneFormField,
   FormFieldArray as DarkOneFormFieldArray,
-  FORM_ITEM_INJECTION_KEY as DARKONE_FORM_ITEM_INJECTION_KEY,
+  FORM_ITEM_INJECTION_KEY,
 } from '@/components/ui/form';
 export { useFormField } from '@/components/ui/form/useFormField';
 // The rhythm and label of a DarkOneField, so a validated form reads like the rest of the studio.
