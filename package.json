@@ -1,7 +1,7 @@
 {
   "name": "darkone-shadcn-vue",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "DarkOne wrappers around shadcn-vue, published as a shadcn-vue registry, with a kitchensink",
   "homepage": "https://rzem-ai.github.io/darkone-shadcn-vue/",
